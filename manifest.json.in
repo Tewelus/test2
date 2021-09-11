@@ -1,0 +1,15 @@
+{
+    "name": "test2.test2",
+    "description": "test2",
+    "architecture": "@CLICK_ARCH@",
+    "title": "test2",
+    "hooks": {
+        "test2": {
+            "apparmor": "test2.apparmor",
+            "desktop":  "test2.desktop"
+        }
+    },
+    "version": "@BUILD_VERSION@",
+    "maintainer": "test2 <test@test.de>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}
