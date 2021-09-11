@@ -87,8 +87,6 @@ add_custom_target(${DESKTOP_FILE_NAME} ALL
 
 
 
-
-
 execute_process(
    COMMAND dpkg-architecture -qDEB_HOST_GNU_CPU
    COMMAND sed -e "s/arm64/manylinux2014_aarch64/g"
@@ -99,24 +97,12 @@ execute_process(
 )
 
 
-#add_custom_target(no_idea ALL
-#    COMMAND pip3 install -U pip==20.3.4 requests
-#    COMMENT Building for ${CPU_ARCH}
-#    COMMAND python3 -m pip install --upgrade pip setuptools wheel
-#    COMMAND pip3 install -U --platform ${CPU_ARCH} --only-binary=:all: pykeepass-rs==0.1.8 --target install/vendored
-#    COMMAND pip3 install -U --platform ${CPU_ARCH} --only-binary=:all: pygame --target install/vendored
-#    COMMAND pip3 install -U --only-binary=all: moviepy --target install/vendored
-#    COMMAND pip3 install -U --only-binary=all: gizeh --target install/vendored
-
-#)
 
 
 add_custom_command(TARGET ${DESKTOP_FILE_NAME}
 
     COMMAND pip3 install -U pip==20.3.4 requests
     COMMAND python3 -m pip install --upgrade pip setuptools wheel
-
-    COMMAND pip3 install -U --platform ${CPU_ARCH} --only-binary=:all: pykeepass-rs==0.1.8 --target install/vendored
     COMMAND pip3 install -U --platform ${CPU_ARCH} --only-binary=:all: pygame --target install/vendored
     COMMAND pip3 install -U --only-binary=all: moviepy --target install/vendored
     COMMAND pip3 install -U --only-binary=all: gizeh --target install/vendored
